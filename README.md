@@ -1,12 +1,12 @@
 # EXPERIMENT--03-INTERFACING IOT DEVELOPMENT BOARD AND CONFIGURE USART FOR TRANSFERRING STRINGS 
 
-**DATE:**
+**DATE:**23-04-2025
 
-**NAME:**
+**NAME:**MUTHU POORNIMA P
 
-**ROLL NO:**
+**ROLL NO:**212224240099
 
-**DEPARTMENT:**
+**DEPARTMENT:**ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING 
 
 ## Aim:
 
@@ -90,10 +90,48 @@ UART transmits and receives data asynchronously, meaning there is no shared cloc
 
 
 ## STM 32 CUBE PROGRAM :
+```
+#include "main.h"
+#include "stdio.h"
+
+UART_HandleTypeDef huart2;
+
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_USART2_UART_Init(void);
+
+#if defined(_ICCARM) || defined(_ARMCC_VERSION)
+#define PUTCHAR_PROTOTYPE int fputc(int ch,FILE *f)
+#elif defined(_GNUC_)
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#endif
+int main(void)
+{
+  HAL_Init();                 // Initialize HAL library
+  SystemClock_Config();       // Configure system clock
+  MX_GPIO_Init();             // Initialize GPIOs
+  MX_USART2_UART_Init();      // Initialize UART2
+
+  while (1)
+  {
+    printf(" saveetha engineerng college\n");
+    printf("scoft\n");
+    HAL_Delay(500);          // 500ms delay
+  }
+}
+PUTCHAR_PROTOTYPE
+{
+  HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFFFF);
+  return ch;
+}
+```
 
 
 
 ## Output screen shots of Serial port utility   :
+
+![image](https://github.com/user-attachments/assets/554de799-8907-41f8-a184-ff3c1ceb10e2)
+
  
  
  
